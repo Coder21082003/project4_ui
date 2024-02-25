@@ -12,7 +12,6 @@ import 'package:flutter_ui/widgets/app_bar/appbar_trailing_image.dart';
 import 'package:flutter_ui/widgets/app_bar/custom_app_bar.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-// ignore_for_file: must_be_immutable
 class DashboardPage extends StatelessWidget {
   DashboardPage({Key? key}) : super(key: key);
 
@@ -132,28 +131,44 @@ class DashboardPage extends StatelessWidget {
 
   /// Section Widget
   Widget _buildCategories(BuildContext context) {
+    final categories = [
+      {'name': 'Đồ ăn', 'icon': Icons.fastfood, 'route': AppRoutes.food},
+      {'name': 'Đồ bếp', 'icon': Icons.kitchen, 'route': AppRoutes.kitchen},
+      {'name': 'Đồ điện tử', 'icon': Icons.computer, 'route': AppRoutes.electronics},
+      {'name': 'Đồ gia dụng', 'icon': Icons.lightbulb_outline, 'route': AppRoutes.appliances},
+    ];
+
     return Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.start, children: [
       Padding(
           padding: EdgeInsets.only(right: 16.h),
           child: _buildFlashSaleHeader(context,
               flashSale: "Category",
               seeMoreLink: "More Category", onTapSeeMoreLink: () {
-            onTapTxtMoreCategoryLink(context);
-          })),
+                onTapMoreCategoryLink(context);
+              })),
       SizedBox(height: 10.v),
-      SizedBox(
-          height: 94.v,
-          child: ListView.separated(
-              scrollDirection: Axis.horizontal,
-              separatorBuilder: (context, index) {
-                return SizedBox(width: 12.h);
-              },
-              itemCount: 5,
-              itemBuilder: (context, index) {
-                return ArrowrightItemWidget();
-              }))
+      Container(
+        height: 94.v,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: categories.map((category) {
+            return Expanded(
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, category['route'] as String);
+                },
+                child: ArrowrightItemWidget(
+                  title: category['name'] as String,
+                  icon: category['icon'] as IconData, // Pass the icon here
+                ),
+              ),
+            );
+          }).toList(),
+        ),
+      ),
     ]);
   }
+
 
   /// Section Widget
   Widget _buildFlashSale(BuildContext context) {
@@ -177,7 +192,11 @@ class DashboardPage extends StatelessWidget {
           padding: EdgeInsets.only(right: 16.h),
           child: _buildFlashSaleHeader(context,
               flashSale: "Flash Sale",
-              seeMoreLink: "See More", onTapFlashSaleHeader: () {
+              seeMoreLink: "See More",
+              onTapSeeMoreLink: () {
+            onTapFlashSaleListPage(context);
+              },
+              onTapFlashSaleHeader: () {
             onTapFlashSaleHeader(context);
           })),
       SizedBox(height: 12.v),
@@ -284,12 +303,18 @@ class DashboardPage extends StatelessWidget {
   }
 
   /// Navigates to the listCategoryScreen when the action is triggered.
-  onTapTxtMoreCategoryLink(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.listCategoryScreen);
+  // onTapTxtMoreCategoryLink(BuildContext context) {
+  //   Navigator.pushNamed(context, AppRoutes.listCategoryScreen);
+  // }
+  onTapFlashSaleListPage(BuildContext context){
+    Navigator.pushNamed(context, AppRoutes.flashSaleListPage);
   }
-
   /// Navigates to the superFlashSaleScreen when the action is triggered.
   onTapFlashSaleHeader(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.superFlashSaleScreen);
   }
+  onTapMoreCategoryLink(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.allCategories);
+  }
+
 }
