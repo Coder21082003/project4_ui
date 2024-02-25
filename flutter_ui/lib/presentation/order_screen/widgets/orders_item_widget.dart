@@ -25,7 +25,7 @@ class OrdersItemWidget extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              "SDG1345KJD",
+              "Chuột không dây Logitech",
               style: theme.textTheme.titleSmall,
             ),
           ),
@@ -35,7 +35,7 @@ class OrdersItemWidget extends StatelessWidget {
             child: Opacity(
               opacity: 0.5,
               child: Text(
-                "Order at E-com : August 1, 2017",
+                "Shop Logitech \n Thời gian đặt 8:14 ngày 24 tháng 2 năm 2024",
                 style: CustomTextStyles.bodySmallOnPrimary_1,
               ),
             ),
@@ -49,13 +49,13 @@ class OrdersItemWidget extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 1.v),
                   child: Text(
-                    "Order Status",
+                    "Trạng thái đơn hàng",
                     style: CustomTextStyles.bodySmallOnPrimary_1,
                   ),
                 ),
               ),
               Text(
-                "Shipping",
+                "Đang giao",
                 style: CustomTextStyles.bodySmallOnPrimary,
               ),
             ],
@@ -71,13 +71,13 @@ class OrdersItemWidget extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.only(bottom: 1.v),
                     child: Text(
-                      "Items",
+                      "Số lượng",
                       style: CustomTextStyles.bodySmallOnPrimary_1,
                     ),
                   ),
                 ),
                 Text(
-                  "1 Items purchased",
+                  "1",
                   style: CustomTextStyles.bodySmallOnPrimary,
                 ),
               ],
@@ -92,12 +92,12 @@ class OrdersItemWidget extends StatelessWidget {
                 Opacity(
                   opacity: 0.5,
                   child: Text(
-                    "Price",
+                    "Giá",
                     style: CustomTextStyles.bodySmallOnPrimary_1,
                   ),
                 ),
                 Text(
-                  "299,43",
+                  "499.999 vnd",
                   style: CustomTextStyles.labelLargePrimary,
                 ),
               ],

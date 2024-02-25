@@ -75,7 +75,7 @@ class CreditCardAndDebitScreen extends StatelessWidget {
 
   /// Navigates back to the previous screen.
   onTapArrowLeft(BuildContext context) {
-    Navigator.pop(context);
+    Navigator.pushNamed(context, AppRoutes.addPaymentScreen);
   }
 
   /// Navigates to the addCardScreen when the action is triggered.

@@ -76,7 +76,7 @@ class NotificationScreen extends StatelessWidget {
 
   /// Navigates back to the previous screen.
   onTapArrowLeft(BuildContext context) {
-    Navigator.pop(context);
+    Navigator.pushNamed(context, AppRoutes.dashboardPage);
   }
 
   /// Navigates to the notificationOfferScreen when the action is triggered.

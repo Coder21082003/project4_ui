@@ -57,13 +57,13 @@ class ChangePasswordScreen extends StatelessWidget {
               onTapArrowLeft(context);
             }),
         title: AppbarSubtitle(
-            text: "Change Password", margin: EdgeInsets.only(left: 12.h)));
+            text: "Đổi mật khẩu", margin: EdgeInsets.only(left: 12.h)));
   }
 
   /// Section Widget
   Widget _buildOldPassword(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text("Old Password", style: theme.textTheme.titleSmall),
+      Text("Mật khẩu cũ", style: theme.textTheme.titleSmall),
       SizedBox(height: 12.v),
       CustomTextFormField(
           controller: passwordController,
@@ -87,7 +87,7 @@ class ChangePasswordScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildNewPassword(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text("New Password", style: theme.textTheme.titleSmall),
+      Text("Mật khẩu mới", style: theme.textTheme.titleSmall),
       SizedBox(height: 12.v),
       CustomTextFormField(
           controller: newpasswordController,
@@ -111,7 +111,7 @@ class ChangePasswordScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildConfirmPassword(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text("New Password Again", style: theme.textTheme.titleSmall),
+      Text("Nhập lại mật khẩu mới", style: theme.textTheme.titleSmall),
       SizedBox(height: 11.v),
       CustomTextFormField(
           controller: newpasswordController1,
@@ -136,12 +136,12 @@ class ChangePasswordScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildSave(BuildContext context) {
     return CustomElevatedButton(
-        text: "Save",
+        text: "Lưu",
         margin: EdgeInsets.only(left: 16.h, right: 16.h, bottom: 50.v));
   }
 
   /// Navigates back to the previous screen.
   onTapArrowLeft(BuildContext context) {
-    Navigator.pop(context);
+    Navigator.pushNamed(context, AppRoutes.profileScreen);
   }
 }

@@ -3,13 +3,13 @@ import 'package:flutter_ui/core/app_export.dart';
 import 'package:flutter_ui/widgets/custom_icon_button.dart';
 
 // ignore: must_be_immutable
-class Categories1ItemWidget extends StatelessWidget {
-  const Categories1ItemWidget({Key? key})
+class Categories2ItemWidget extends StatelessWidget {
+  const Categories2ItemWidget({Key? key})
       : super(
           key: key,
         );
 
-@override
+  @override
 Widget build(BuildContext context) {
   return GestureDetector(
     onTap: () {
@@ -26,7 +26,7 @@ Widget build(BuildContext context) {
             image: DecorationImage(
               fit: BoxFit.cover,
               image: AssetImage(
-                ImageConstant.imgExploreItem1,
+                ImageConstant.imgExploreItem2,
               ),
             ),
           ),
@@ -34,7 +34,7 @@ Widget build(BuildContext context) {
         SizedBox(height: 8.v),
         Expanded(
           child: Text(
-            "Samsung Galaxy",
+            "Sofa",
             style: CustomTextStyles.labelMediumBluegray300,
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
@@ -44,7 +44,7 @@ Widget build(BuildContext context) {
     ),
   );
 }
-  
+
   //not build yet
   onTapNotThing(BuildContext context) {
     showDialog(

@@ -102,6 +102,6 @@ class NotificationFeedScreen extends StatelessWidget {
 
   /// Navigates back to the previous screen.
   onTapArrowLeft(BuildContext context) {
-    Navigator.pop(context);
+    Navigator.pushNamed(context, AppRoutes.notificationScreen);
   }
 }
