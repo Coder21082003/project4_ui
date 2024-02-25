@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/core/app_export.dart';
 
-// ignore: must_be_immutable
 class FlashsaleItemWidget extends StatelessWidget {
   const FlashsaleItemWidget({Key? key})
       : super(

@@ -5,7 +5,17 @@ import 'package:flutter_ui/presentation/cart_page/cart_page.dart';
 import 'package:flutter_ui/presentation/dashboard_page/dashboard_page.dart';
 import 'package:flutter_ui/presentation/explore_page/explore_page.dart';
 import 'package:flutter_ui/presentation/offer_screen_page/offer_screen_page.dart';
+import 'package:flutter_ui/presentation/super_flash_sale_screen/flash_sale_list_page.dart';
+import 'package:flutter_ui/presentation/super_flash_sale_screen/super_flash_sale_screen.dart';
 import 'package:flutter_ui/widgets/custom_bottom_bar.dart';
+
+import '../category_page/all_categories_page.dart';
+import '../category_page/appliances_page.dart';
+import '../category_page/electronics_page.dart';
+import '../category_page/entertainment_page.dart';
+import '../category_page/fashion_page.dart';
+import '../category_page/food_page.dart';
+import '../category_page/kitchen_page.dart';
 
 // ignore_for_file: must_be_immutable
 class DashboardContainerScreen extends StatelessWidget {
@@ -65,6 +75,24 @@ class DashboardContainerScreen extends StatelessWidget {
         return OfferScreenPage();
       case AppRoutes.accountPage:
         return AccountPage();
+      case AppRoutes.allCategories:
+        return AllCategoriesPage();
+      case AppRoutes.kitchen:
+        return KitchenPage();
+      case AppRoutes.appliances:
+        return AppliancesPage();
+      case AppRoutes.entertainment:
+        return EntertainmentPage();
+      case AppRoutes.food:
+        return FoodPage();
+      case AppRoutes.fashion:
+        return FashionPage();
+      case AppRoutes.electronics:
+        return ElectronicsPage();
+      case AppRoutes.superFlashSaleScreen:
+        return SuperFlashSaleScreen();
+      case AppRoutes.flashSaleListPage:
+        return FlashSaleListPage();
       default:
         return DefaultWidget();
     }
