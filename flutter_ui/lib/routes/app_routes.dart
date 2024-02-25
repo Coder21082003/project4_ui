@@ -7,6 +7,13 @@ import 'package:flutter_ui/presentation/register_screen/input_email_screen.dart'
 import 'package:flutter_ui/presentation/forgot_password_screen/verify_code_page.dart';
 import 'package:flutter_ui/presentation/forgot_password_screen/enter_verify_email_page.dart';
 import 'package:flutter_ui/presentation/dashboard_container_screen/dashboard_container_screen.dart';
+import 'package:flutter_ui/presentation/category_page/all_categories_page.dart';
+import 'package:flutter_ui/presentation/category_page/appliances_page.dart';
+import 'package:flutter_ui/presentation/category_page/electronics_page.dart';
+import 'package:flutter_ui/presentation/category_page/entertainment_page.dart';
+import 'package:flutter_ui/presentation/category_page/fashion_page.dart';
+import 'package:flutter_ui/presentation/category_page/food_page.dart';
+import 'package:flutter_ui/presentation/category_page/kitchen_page.dart';
 import 'package:flutter_ui/presentation/super_flash_sale_screen/super_flash_sale_screen.dart';
 import 'package:flutter_ui/presentation/favorite_product_screen/favorite_product_screen.dart';
 import 'package:flutter_ui/presentation/product_detail_tab_container_screen/product_detail_tab_container_screen.dart';
@@ -37,6 +44,9 @@ import 'package:flutter_ui/presentation/credit_card_and_debit_screen/credit_card
 import 'package:flutter_ui/presentation/add_card_screen/add_card_screen.dart';
 import 'package:flutter_ui/presentation/lailyfa_febrina_card_screen/lailyfa_febrina_card_screen.dart';
 import 'package:flutter_ui/presentation/app_navigation_screen/app_navigation_screen.dart';
+import 'package:flutter_ui/presentation/dashboard_page/dashboard_page.dart';
+
+import '../presentation/super_flash_sale_screen/flash_sale_list_page.dart';
 
 class AppRoutes {
   static const String splashScreen = '/splash_screen';
@@ -45,19 +55,25 @@ class AppRoutes {
 
   static const String registerScreen = '/register_screen/register_screen.dart';
 
-  static const String inputEmailScreen = '/register_screen/input_email_screen.dart';
+  static const String inputEmailScreen =
+      '/register_screen/input_email_screen.dart';
 
-  static const String confirmEmailScreen = '/register_screen/confirm_email_screen.dart';
+  static const String confirmEmailScreen =
+      '/register_screen/confirm_email_screen.dart';
 
-  static const String enterVerifyEmailPage = '/forgot_password_screen/enter_verify_email_page.dart';
+  static const String enterVerifyEmailPage =
+      '/forgot_password_screen/enter_verify_email_page.dart';
 
-  static const String verifyCodePage = '/forgot_password_screen/verify_code_page.dart';
+  static const String verifyCodePage =
+      '/forgot_password_screen/verify_code_page.dart';
 
   static const String dashboardPage = '/dashboard_page';
 
   static const String dashboardContainerScreen = '/dashboard_container_screen';
 
   static const String superFlashSaleScreen = '/super_flash_sale_screen';
+
+  static const String flashSaleListPage = '/flash_sale_list_page';
 
   static const String favoriteProductScreen = '/favorite_product_screen';
 
@@ -89,6 +105,20 @@ class AppRoutes {
       '/search_result_no_data_found_screen';
 
   static const String listCategoryScreen = '/list_category_screen';
+
+  static const String allCategories = '/all_categories_page';
+
+  static const String appliances = '/appliances_page';
+
+  static const String electronics = '/electronics_page';
+
+  static const String entertainment = '/entertainment_page';
+
+  static const String fashion = '/fashion_page';
+
+  static const String food = '/food_page';
+
+  static const String kitchen = '/kitchen_page';
 
   static const String sortByScreen = '/sort_by_screen';
 
@@ -141,13 +171,14 @@ class AppRoutes {
     inputEmailScreen: (context) => InputEmailScreen(),
     confirmEmailScreen: (context) {
       final Map<String, dynamic> args =
-      ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+          ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
       return ConfirmEmailScreen(email: args['email']);
     },
     enterVerifyEmailPage: (context) => EnterVerifyEmailPage(),
     verifyCodePage: (context) => VerifyCodePage(),
     dashboardContainerScreen: (context) => DashboardContainerScreen(),
     superFlashSaleScreen: (context) => SuperFlashSaleScreen(),
+    flashSaleListPage: (context) => FlashSaleListPage(),
     favoriteProductScreen: (context) => FavoriteProductScreen(),
     productDetailTabContainerScreen: (context) =>
         ProductDetailTabContainerScreen(),
@@ -177,6 +208,13 @@ class AppRoutes {
     creditCardAndDebitScreen: (context) => CreditCardAndDebitScreen(),
     addCardScreen: (context) => AddCardScreen(),
     lailyfaFebrinaCardScreen: (context) => LailyfaFebrinaCardScreen(),
-    appNavigationScreen: (context) => AppNavigationScreen()
+    appNavigationScreen: (context) => AppNavigationScreen(),
+    allCategories: (context) => AllCategoriesPage(),
+    appliances: (context) => AppliancesPage(),
+    electronics: (context) => ElectronicsPage(),
+    entertainment: (context) => EntertainmentPage(),
+    fashion: (context) => FashionPage(),
+    food: (context) => FoodPage(),
+    kitchen: (context) => KitchenPage(),
   };
 }
