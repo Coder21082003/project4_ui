@@ -1,3 +1,8 @@
+import 'package:flutter_ui/presentation/explore_page/widgets/categories2_item_widget.dart';
+import 'package:flutter_ui/presentation/explore_page/widgets/categories3_item_widget.dart';
+import 'package:flutter_ui/presentation/explore_page/widgets/categories4_item_widget.dart';
+import 'package:flutter_ui/presentation/explore_page/widgets/categories5_item_widget.dart';
+
 import '../explore_page/widgets/categories1_item_widget.dart';
 import '../explore_page/widgets/categories_item_widget.dart';
 import 'package:flutter/material.dart';
@@ -12,21 +17,36 @@ class ExplorePage extends StatelessWidget {
 
   TextEditingController searchController = TextEditingController();
 
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-            appBar: _buildAppBar(context),
-            body: Container(
-                width: double.maxFinite,
-                padding: EdgeInsets.symmetric(horizontal: 16.h, vertical: 25.v),
-                child: Column(children: [
-                  _buildManFashion(context),
-                  SizedBox(height: 37.v),
-                  _buildWomanFashion(context),
-                  SizedBox(height: 5.v)
-                ]))));
-  }
+@override
+Widget build(BuildContext context) {
+  return SafeArea(
+    child: Scaffold(
+      appBar: _buildAppBar(context),
+      body: SingleChildScrollView(
+        child: Container(
+          width: double.maxFinite,
+          padding: EdgeInsets.symmetric(horizontal: 16.h, vertical: 25.v),
+          child: Column(
+            children: [
+              _buildFood(context),
+              SizedBox(height: 37.v),
+              _buildElectronice(context),
+              SizedBox(height: 37.v),
+              _buildHouseware(context),
+              SizedBox(height: 37.v),
+              _buildSport(context),
+              SizedBox(height: 37.v),
+              _buildFashion(context),
+              SizedBox(height: 37.v),
+              _buildTvFridge(context),
+              SizedBox(height: 37.v),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+}
 
   /// Section Widget
   PreferredSizeWidget _buildAppBar(BuildContext context) {
@@ -64,14 +84,14 @@ class ExplorePage extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildManFashion(BuildContext context) {
+  Widget _buildFood(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text("Man Fashion", style: theme.textTheme.titleSmall),
+      Text("Đồ ăn, thực phẩm", style: theme.textTheme.titleSmall),
       SizedBox(height: 13.v),
       GridView.builder(
           shrinkWrap: true,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              mainAxisExtent: 94.v,
+              mainAxisExtent: 115.v,
               crossAxisCount: 4,
               mainAxisSpacing: 21.h,
               crossAxisSpacing: 21.h),
@@ -84,14 +104,14 @@ class ExplorePage extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildWomanFashion(BuildContext context) {
+  Widget _buildElectronice(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text("Woman Fashion", style: theme.textTheme.titleSmall),
+      Text("Đồ điện tử", style: theme.textTheme.titleSmall),
       SizedBox(height: 13.v),
       GridView.builder(
           shrinkWrap: true,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              mainAxisExtent: 93.v,
+              mainAxisExtent: 115.v,
               crossAxisCount: 4,
               mainAxisSpacing: 21.h,
               crossAxisSpacing: 21.h),
@@ -103,8 +123,122 @@ class ExplorePage extends StatelessWidget {
     ]);
   }
 
+    /// Section Widget
+  Widget _buildHouseware(BuildContext context) {
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text("Đồ gia dụng, nội thất, cây cảnh", style: theme.textTheme.titleSmall),
+      SizedBox(height: 13.v),
+      GridView.builder(
+          shrinkWrap: true,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              mainAxisExtent: 115.v,
+              crossAxisCount: 4,
+              mainAxisSpacing: 21.h,
+              crossAxisSpacing: 21.h),
+          physics: NeverScrollableScrollPhysics(),
+          itemCount: 7,
+          itemBuilder: (context, index) {
+            return Categories2ItemWidget();
+          })
+    ]);
+  }
+
+
+    /// Section Widget
+  Widget _buildSport(BuildContext context) {
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text("Giải trí, Thể thao, Sở thích", style: theme.textTheme.titleSmall),
+      SizedBox(height: 13.v),
+      GridView.builder(
+          shrinkWrap: true,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              mainAxisExtent: 115.v,
+              crossAxisCount: 4,
+              mainAxisSpacing: 21.h,
+              crossAxisSpacing: 21.h),
+          physics: NeverScrollableScrollPhysics(),
+          itemCount: 7,
+          itemBuilder: (context, index) {
+            return Categories3ItemWidget();
+          })
+    ]);
+  }
+
+
+    /// Section Widget
+  Widget _buildFashion(BuildContext context) {
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text("Thời trang, Đồ dùng cá nhân", style: theme.textTheme.titleSmall),
+      SizedBox(height: 13.v),
+      GridView.builder(
+          shrinkWrap: true,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              mainAxisExtent: 115.v,
+              crossAxisCount: 4,
+              mainAxisSpacing: 21.h,
+              crossAxisSpacing: 21.h),
+          physics: NeverScrollableScrollPhysics(),
+          itemCount: 7,
+          itemBuilder: (context, index) {
+            return Categories4ItemWidget();
+          })
+    ]);
+  }
+
+
+    /// Section Widget
+  Widget _buildTvFridge(BuildContext context) {
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text("Tủ lạnh, máy lạnh, máy giặt", style: theme.textTheme.titleSmall),
+      SizedBox(height: 13.v),
+      GridView.builder(
+          shrinkWrap: true,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              mainAxisExtent: 115.v,
+              crossAxisCount: 4,
+              mainAxisSpacing: 21.h,
+              crossAxisSpacing: 21.h),
+          physics: NeverScrollableScrollPhysics(),
+          itemCount: 7,
+          itemBuilder: (context, index) {
+            return Categories5ItemWidget();
+          })
+    ]);
+  }
+
+
   /// Navigates to the notificationScreen when the action is triggered.
   onTapImgNotificationIcon(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.notificationScreen);
+  }
+
+  //not build yet
+  onTapNotThing(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(
+            "Note",
+            style: TextStyle(color: Colors.black),
+          ),
+          content: Text(
+            "This fuction is not availble yet",
+            style: TextStyle(color: Colors.black),
+          ),
+          actions: [
+            TextButton(
+              child: Text(
+                "Close",
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }

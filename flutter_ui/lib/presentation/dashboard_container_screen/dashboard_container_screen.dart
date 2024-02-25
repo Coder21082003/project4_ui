@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/core/app_export.dart';
 import 'package:flutter_ui/presentation/account_page/account_page.dart';
+import 'package:flutter_ui/presentation/add_address_screen/add_address_screen.dart';
+import 'package:flutter_ui/presentation/add_payment_screen/add_payment_screen.dart';
+import 'package:flutter_ui/presentation/address_screen/address_screen.dart';
 import 'package:flutter_ui/presentation/cart_page/cart_page.dart';
+import 'package:flutter_ui/presentation/change_password_screen/change_password_screen.dart';
+import 'package:flutter_ui/presentation/choose_credit_or_debit_card_screen/choose_credit_or_debit_card_screen.dart';
+import 'package:flutter_ui/presentation/credit_card_and_debit_screen/credit_card_and_debit_screen.dart';
 import 'package:flutter_ui/presentation/dashboard_page/dashboard_page.dart';
 import 'package:flutter_ui/presentation/explore_page/explore_page.dart';
+import 'package:flutter_ui/presentation/notification_activity_screen/notification_activity_screen.dart';
+import 'package:flutter_ui/presentation/notification_feed_screen/notification_feed_screen.dart';
+import 'package:flutter_ui/presentation/notification_offer_screen/notification_offer_screen.dart';
+import 'package:flutter_ui/presentation/notification_screen/notification_screen.dart';
 import 'package:flutter_ui/presentation/offer_screen_page/offer_screen_page.dart';
+import 'package:flutter_ui/presentation/order_details_screen/order_details_screen.dart';
+import 'package:flutter_ui/presentation/order_screen/order_screen.dart';
+import 'package:flutter_ui/presentation/payment_method_screen/payment_method_screen.dart';
+import 'package:flutter_ui/presentation/profile_screen/profile_screen.dart';
 import 'package:flutter_ui/widgets/custom_bottom_bar.dart';
 
 // ignore_for_file: must_be_immutable
@@ -65,6 +79,34 @@ class DashboardContainerScreen extends StatelessWidget {
         return OfferScreenPage();
       case AppRoutes.accountPage:
         return AccountPage();
+      case AppRoutes.profileScreen:
+        return ProfileScreen();
+      case AppRoutes.addPaymentScreen:
+        return AddPaymentScreen();
+      case AppRoutes.orderDetailsScreen:
+        return OrderDetailsScreen();
+      case AppRoutes.addressScreen:
+        return AddressScreen();
+      case AppRoutes.changePasswordScreen:
+        return ChangePasswordScreen();
+      case AppRoutes.creditCardAndDebitScreen:
+        return CreditCardAndDebitScreen();
+      case AppRoutes.chooseCreditOrDebitCardScreen:
+        return ChooseCreditOrDebitCardScreen();
+      case AppRoutes.notificationScreen:
+        return NotificationScreen();
+      case AppRoutes.notificationActivityScreen:
+        return NotificationActivityScreen();
+      case AppRoutes.notificationFeedScreen:
+        return NotificationFeedScreen();
+      case AppRoutes.notificationOfferScreen:
+        return NotificationOfferScreen();
+      case AppRoutes.addAddressScreen:
+        return AddAddressScreen();
+      case AppRoutes.orderScreen:
+        return OrderScreen();
+      case AppRoutes.orderDetailsScreen:
+        return OrderDetailsScreen();
       default:
         return DefaultWidget();
     }

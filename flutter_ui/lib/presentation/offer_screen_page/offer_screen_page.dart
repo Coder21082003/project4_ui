@@ -51,8 +51,8 @@ class OfferScreenPage extends StatelessWidget {
             children: [
               SizedBox(height: 3.v),
               SizedBox(
-                  width: 201.h,
-                  child: Text("Use “MEGSL” Cupon For Get 90%off",
+                  width: 250.h,
+                  child: Text("Nhập mã “CHAO BAN MOI” nhận ưu đãi tới 90%",
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: CustomTextStyles.titleMediumOnPrimaryContainer

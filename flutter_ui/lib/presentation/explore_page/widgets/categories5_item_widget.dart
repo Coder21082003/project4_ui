@@ -3,8 +3,8 @@ import 'package:flutter_ui/core/app_export.dart';
 import 'package:flutter_ui/widgets/custom_icon_button.dart';
 
 // ignore: must_be_immutable
-class Categories1ItemWidget extends StatelessWidget {
-  const Categories1ItemWidget({Key? key})
+class Categories5ItemWidget extends StatelessWidget {
+  const Categories5ItemWidget({Key? key})
       : super(
           key: key,
         );
@@ -26,7 +26,7 @@ Widget build(BuildContext context) {
             image: DecorationImage(
               fit: BoxFit.cover,
               image: AssetImage(
-                ImageConstant.imgExploreItem1,
+                ImageConstant.imgExploreItem5,
               ),
             ),
           ),
@@ -34,7 +34,7 @@ Widget build(BuildContext context) {
         SizedBox(height: 8.v),
         Expanded(
           child: Text(
-            "Samsung Galaxy",
+            "Máy giặt sony",
             style: CustomTextStyles.labelMediumBluegray300,
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
@@ -44,7 +44,7 @@ Widget build(BuildContext context) {
     ),
   );
 }
-  
+
   //not build yet
   onTapNotThing(BuildContext context) {
     showDialog(

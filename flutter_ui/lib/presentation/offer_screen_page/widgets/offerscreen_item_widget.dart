@@ -1,12 +1,51 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/core/app_export.dart';
+import 'package:intl/intl.dart';
 
-// ignore: must_be_immutable
-class OfferscreenItemWidget extends StatelessWidget {
-  const OfferscreenItemWidget({Key? key})
-      : super(
-          key: key,
-        );
+class OfferscreenItemWidget extends StatefulWidget {
+  const OfferscreenItemWidget({Key? key}) : super(key: key);
+
+  @override
+  _OfferscreenItemWidgetState createState() => _OfferscreenItemWidgetState();
+}
+
+class _OfferscreenItemWidgetState extends State<OfferscreenItemWidget> {
+  late Timer _timer;
+  late int countDown = 15 * 60; // 15 phút đổi thành giây
+  late String formattedMinutes;
+  late String formattedSeconds;
+
+  @override
+  void initState() {
+    super.initState();
+    updateDateTime();
+
+    // Cập nhật thời gian sau mỗi giây
+    _timer = Timer.periodic(Duration(seconds: 1), (_) {
+      updateDateTime();
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  void updateDateTime() {
+    formattedMinutes = (countDown ~/ 60).toString().padLeft(2, '0');
+    formattedSeconds = (countDown % 60).toString().padLeft(2, '0');
+    
+    if (countDown > 0) {
+      countDown--;
+    } else {
+      // Đã hết thời gian, thực hiện hành động tương ứng
+      // Ví dụ: Hiển thị thông báo, tắt widget, vv.
+    }
+
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +59,7 @@ class OfferscreenItemWidget extends StatelessWidget {
             imagePath: ImageConstant.imgPromotionImage,
             height: 206.v,
             width: 343.h,
-            radius: BorderRadius.circular(
-              5.h,
-            ),
+            radius: BorderRadius.circular(5.h),
             alignment: Alignment.center,
           ),
           Align(
@@ -36,7 +73,7 @@ class OfferscreenItemWidget extends StatelessWidget {
                   SizedBox(
                     width: 209.h,
                     child: Text(
-                      "Super Flash Sale\n50% Off",
+                      "Siêu ưu đãi\nGiảm 50%",
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: theme.textTheme.headlineSmall!.copyWith(
@@ -58,7 +95,7 @@ class OfferscreenItemWidget extends StatelessWidget {
                           borderRadius: BorderRadiusStyle.roundedBorder5,
                         ),
                         child: Text(
-                          "08",
+                          formattedMinutes,
                           style: theme.textTheme.titleMedium,
                         ),
                       ),
@@ -70,7 +107,8 @@ class OfferscreenItemWidget extends StatelessWidget {
                         ),
                         child: Text(
                           ":",
-                          style: CustomTextStyles.titleSmallOnPrimaryContainer,
+                          style:
+                              CustomTextStyles.titleSmallOnPrimaryContainer,
                         ),
                       ),
                       Container(
@@ -85,34 +123,7 @@ class OfferscreenItemWidget extends StatelessWidget {
                           borderRadius: BorderRadiusStyle.roundedBorder5,
                         ),
                         child: Text(
-                          "34",
-                          style: theme.textTheme.titleMedium,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          left: 4.h,
-                          top: 10.v,
-                          bottom: 9.v,
-                        ),
-                        child: Text(
-                          ":",
-                          style: CustomTextStyles.titleSmallOnPrimaryContainer,
-                        ),
-                      ),
-                      Container(
-                        width: 42.h,
-                        margin: EdgeInsets.only(left: 4.h),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 10.h,
-                          vertical: 8.v,
-                        ),
-                        decoration:
-                            AppDecoration.fillOnPrimaryContainer.copyWith(
-                          borderRadius: BorderRadiusStyle.roundedBorder5,
-                        ),
-                        child: Text(
-                          "52",
+                          formattedSeconds,
                           style: theme.textTheme.titleMedium,
                         ),
                       ),

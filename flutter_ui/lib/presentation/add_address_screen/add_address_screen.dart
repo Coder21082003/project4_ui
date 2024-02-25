@@ -57,14 +57,14 @@ class AddAddressScreen extends StatelessWidget {
                                     SizedBox(height: 23.v),
                                     _buildStreetAddress(context),
                                     SizedBox(height: 21.v),
-                                    _buildStreetAddress2(context),
-                                    SizedBox(height: 22.v),
-                                    _buildCity(context),
-                                    SizedBox(height: 23.v),
-                                    _buildStateProvinceRegion(context),
-                                    SizedBox(height: 24.v),
-                                    _buildZipCode(context),
-                                    SizedBox(height: 23.v),
+                                    // _buildStreetAddress2(context),
+                                    // SizedBox(height: 22.v),
+                                    // _buildCity(context),
+                                    // SizedBox(height: 23.v),
+                                    // _buildStateProvinceRegion(context),
+                                    // SizedBox(height: 24.v),
+                                    // _buildZipCode(context),
+                                    // SizedBox(height: 23.v),
                                     _buildPhoneNumber(context)
                                   ]))))
                     ]))),
@@ -82,17 +82,17 @@ class AddAddressScreen extends StatelessWidget {
               onTapArrowLeft(context);
             }),
         title: AppbarSubtitle(
-            text: "Add Address", margin: EdgeInsets.only(left: 12.h)));
+            text: "Địa chỉ", margin: EdgeInsets.only(left: 12.h)));
   }
 
   /// Section Widget
   Widget _buildCountry(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text("Country or region", style: theme.textTheme.titleSmall),
+      Text("Tỉnh / thành phố", style: theme.textTheme.titleSmall),
       SizedBox(height: 11.v),
       CustomTextFormField(
           controller: countryController,
-          hintText: "Enter the country or region",
+          hintText: "Nhập tỉnh hoặc thành phố",
           borderDecoration: TextFormFieldStyleHelper.outlineBlueTL5,
           filled: false)
     ]);
@@ -101,11 +101,11 @@ class AddAddressScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildFirstName(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text("First Name", style: theme.textTheme.titleSmall),
+      Text("Quận / huyện", style: theme.textTheme.titleSmall),
       SizedBox(height: 13.v),
       CustomTextFormField(
           controller: firstNameController,
-          hintText: "Enter the first name",
+          hintText: "Nhập tên quận/huyện",
           borderDecoration: TextFormFieldStyleHelper.outlineBlueTL5,
           filled: false)
     ]);
@@ -114,11 +114,11 @@ class AddAddressScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildLastName(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text("Last Name", style: theme.textTheme.titleSmall),
+      Text("Xã / phường", style: theme.textTheme.titleSmall),
       SizedBox(height: 12.v),
       CustomTextFormField(
           controller: lastNameController,
-          hintText: "Enter the last name",
+          hintText: "Nhập tên xã / phường",
           borderDecoration: TextFormFieldStyleHelper.outlineBlueTL5,
           filled: false)
     ]);
@@ -127,11 +127,11 @@ class AddAddressScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildStreetAddress(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text("Street Address", style: theme.textTheme.titleSmall),
+      Text("Số nhà", style: theme.textTheme.titleSmall),
       SizedBox(height: 12.v),
       CustomTextFormField(
           controller: streetaddressController,
-          hintText: "Enter the street address",
+          hintText: "Nhập số nhà",
           borderDecoration: TextFormFieldStyleHelper.outlineBlueTL5,
           filled: false)
     ]);
@@ -193,11 +193,11 @@ class AddAddressScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildPhoneNumber(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text("Phone Number", style: theme.textTheme.titleSmall),
+      Text("Số điện thoại", style: theme.textTheme.titleSmall),
       SizedBox(height: 12.v),
       CustomTextFormField(
           controller: phoneNumberController,
-          hintText: "Enter the phone number",
+          hintText: "Nhập số điện thoại",
           textInputAction: TextInputAction.done,
           textInputType: TextInputType.phone,
           contentPadding:
@@ -210,12 +210,12 @@ class AddAddressScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildAddAddress(BuildContext context) {
     return CustomElevatedButton(
-        text: "Add Address",
+        text: "Lưu địa chỉ",
         margin: EdgeInsets.only(left: 16.h, right: 16.h, bottom: 50.v));
   }
 
   /// Navigates back to the previous screen.
   onTapArrowLeft(BuildContext context) {
-    Navigator.pop(context);
+    Navigator.pushNamed(context, AppRoutes.accountPage);
   }
 }

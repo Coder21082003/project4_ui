@@ -89,7 +89,7 @@ class ChooseCreditOrDebitCardScreen extends StatelessWidget {
 
   /// Navigates back to the previous screen.
   onTapArrowLeft(BuildContext context) {
-    Navigator.pop(context);
+    Navigator.pushNamed(context, AppRoutes.accountPage);
   }
 
   /// Navigates to the successScreen when the action is triggered.
