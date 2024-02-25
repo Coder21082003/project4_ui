@@ -20,24 +20,24 @@ class ProfileScreen extends StatelessWidget {
                   SizedBox(height: 32.v),
                   _buildProfileDetailOption(context,
                       dateIcon: ImageConstant.imgGenderIcon,
-                      birthday: "Gender",
-                      date: "Male"),
+                      birthday: "Giới tính",
+                      date: "Nam"),
                   _buildProfileDetailOption(context,
                       dateIcon: ImageConstant.imgDateIcon,
-                      birthday: "Birthday",
-                      date: "12-12-2000"),
+                      birthday: "Ngày sinh",
+                      date: "21-08-2003"),
                   _buildProfileDetailOption(context,
                       dateIcon: ImageConstant.imgMessageIcon,
                       birthday: "Email",
-                      date: "rex4dom@gmail.com"),
+                      date: "hung211242321@gmail.com"),
                   _buildProfileDetailOption(context,
                       dateIcon: ImageConstant.imgCreditCardIcon,
-                      birthday: "Phone Number",
-                      date: "(307) 555-0133"),
+                      birthday: "Số điện thoại",
+                      date: "0365256489"),
                   SizedBox(height: 5.v),
                   _buildProfileDetailOption(context,
                       dateIcon: ImageConstant.imgTrophy,
-                      birthday: "Change Password",
+                      birthday: "Đổi mật khẩu",
                       date: "•••••••••••••••••", onTapProfileDetailOption: () {
                     onTapProfileDetailOption(context);
                   })
@@ -55,30 +55,44 @@ class ProfileScreen extends StatelessWidget {
               onTapArrowLeft(context);
             }),
         title: AppbarSubtitle(
-            text: "Profile", margin: EdgeInsets.only(left: 12.h)));
+            text: "Tài khoản", margin: EdgeInsets.only(left: 12.h)));
   }
 
   /// Section Widget
-  Widget _buildProfile(BuildContext context) {
-    return Align(
-        alignment: Alignment.centerLeft,
-        child: Padding(
-            padding: EdgeInsets.only(left: 16.h),
-            child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              CustomImageView(
-                  imagePath: ImageConstant.imgProfilePicture72x72,
-                  height: 72.adaptSize,
-                  width: 72.adaptSize,
-                  radius: BorderRadius.circular(36.h)),
-              Padding(
-                  padding: EdgeInsets.only(left: 16.h, top: 9.v, bottom: 14.v),
-                  child: Column(children: [
-                    Text("Dominic Ovo", style: theme.textTheme.titleSmall),
-                    SizedBox(height: 8.v),
-                    Text("@dominic_ovo", style: theme.textTheme.bodySmall)
-                  ]))
-            ])));
-  }
+Widget _buildProfile(BuildContext context) {
+  return Align(
+    alignment: Alignment.centerLeft,
+    child: Padding(
+      padding: EdgeInsets.only(left: 16.h),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Flexible(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(36.h),
+              child: Image.asset(
+                ImageConstant.imgProfilePictureBlank,
+                height: 72.adaptSize,
+                width: 72.adaptSize,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 16.h, top: 9.v, bottom: 14.v),
+            child: Column(
+              children: [
+                Text("Nguyễn Đức Hưng", style: theme.textTheme.titleSmall),
+                SizedBox(height: 8.v),
+                Text("@nguyen_duc_hung", style: theme.textTheme.bodySmall),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
 
   /// Common widget
   Widget _buildProfileDetailOption(
@@ -122,11 +136,13 @@ class ProfileScreen extends StatelessWidget {
 
   /// Navigates back to the previous screen.
   onTapArrowLeft(BuildContext context) {
-    Navigator.pop(context);
+    Navigator.pushNamed(context, AppRoutes.accountPage);
   }
 
   /// Navigates to the changePasswordScreen when the action is triggered.
   onTapProfileDetailOption(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.changePasswordScreen);
   }
+
+  
 }

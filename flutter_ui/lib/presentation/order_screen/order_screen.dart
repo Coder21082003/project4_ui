@@ -45,11 +45,11 @@ class OrderScreen extends StatelessWidget {
               onTapArrowLeft(context);
             }),
         title:
-            AppbarSubtitle(text: "Order", margin: EdgeInsets.only(left: 12.h)));
+            AppbarSubtitle(text: "Đơn hàng", margin: EdgeInsets.only(left: 12.h)));
   }
 
   /// Navigates back to the previous screen.
   onTapArrowLeft(BuildContext context) {
-    Navigator.pop(context);
+    Navigator.pushNamed(context, AppRoutes.accountPage);
   }
 }

@@ -200,4 +200,18 @@ class ImageConstant {
   static String imgUser = '$imagePath/img_user.svg';
 
   static String imageNotFound = 'assets/images/image_not_found.png';
+
+  //explore img
+  static String imgExploreItem = '$imagePath/img_explore_item1.png';
+  static String imgExploreItem1 = '$imagePath/img_explore_item2.png';
+  static String imgExploreItem2 = '$imagePath/img_explore_item3.png';
+  static String imgExploreItem3 = '$imagePath/img_explore_item4.png';
+  static String imgExploreItem4 = '$imagePath/img_explore_item5.png';
+  static String imgExploreItem5 = '$imagePath/img_explore_item6.png';
+
+  //end explore img
+
+  //Account img
+  static String imgProfilePictureBlank = '$imagePath/img_profile_picture_blank.png';
+  //end account
 }
