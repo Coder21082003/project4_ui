@@ -2,12 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui/core/app_export.dart';
 import 'package:flutter_ui/widgets/custom_icon_button.dart';
 
+
 // ignore: must_be_immutable
-class CartItemWidget extends StatelessWidget {
-  const CartItemWidget({Key? key})
-      : super(
-          key: key,
-        );
+class CartItemWidget extends StatefulWidget {
+  const CartItemWidget({Key? key}) : super(key: key);
+
+  @override
+  _CartItemWidgetState createState() => _CartItemWidgetState();
+}
+
+class _CartItemWidgetState extends State<CartItemWidget> {
+  int quantity = 1; // Giả sử mỗi sản phẩm bắt đầu với số lượng là 1
+
+  void _incrementQuantity() {
+    setState(() {
+      quantity++;
+    });
+  }
+
+  void _decrementQuantity() {
+    setState(() {
+      if (quantity > 1) {
+        quantity--;
+      }
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +39,19 @@ class CartItemWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          CustomImageView(
-            imagePath: ImageConstant.imgImageProduct,
-            height: 72.adaptSize,
-            width: 72.adaptSize,
-            radius: BorderRadius.circular(
-              5.h,
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 14), // Sử dụng margin ở đây
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5), // Sử dụng BorderRadius ở đây
             ),
-            margin: EdgeInsets.symmetric(vertical: 1.v),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(5), // Sử dụng ClipRRect để áp dụng bo viền cho ảnh
+              child: Image.asset(
+                "assets/images/iphone_15.png",
+                height: 72, // Bỏ .adaptSize cho đơn giản, hoặc thay bằng cách tính toán kích thước phù hợp
+                width: 72, // Tương tự như trên
+              ),
+            ),
           ),
           Column(
             children: [
@@ -37,7 +62,7 @@ class CartItemWidget extends StatelessWidget {
                   SizedBox(
                     width: 150.h,
                     child: Text(
-                      "Nike Air Zoom Pegasus 36 Miami",
+                      "iPhone 15",
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: theme.textTheme.labelLarge!.copyWith(
@@ -72,17 +97,10 @@ class CartItemWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "299,43",
+                      "1000.00",
                       style: CustomTextStyles.labelLargePrimary,
                     ),
                     Spacer(),
-                    CustomIconButton(
-                      height: 20.v,
-                      width: 33.h,
-                      child: CustomImageView(
-                        imagePath: ImageConstant.imgUserBlue50,
-                      ),
-                    ),
                     SizedBox(
                       height: 20.v,
                       width: 41.h,
@@ -104,29 +122,34 @@ class CartItemWidget extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: Opacity(
-                              opacity: 0.5,
-                              child: Padding(
-                                padding: EdgeInsets.only(right: 17.h),
-                                child: Text(
-                                  "1",
-                                  style: CustomTextStyles.bodySmallOnPrimary_2,
-                                ),
-                              ),
-                            ),
-                          ),
                         ],
                       ),
                     ),
-                    CustomIconButton(
-                      height: 20.v,
-                      width: 33.h,
-                      child: CustomImageView(
-                        imagePath: ImageConstant.imgUserBlue50,
-                      ),
+                Align(
+                  alignment: Alignment.centerLeft, // Điều chỉnh alignment để di chuyển sang trái
+                  child: Container(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min, // Sử dụng MainAxisSize.min để Row chiếm đúng kích thước của nội dung bên trong
+                      children: [
+                        IconButton(
+                          icon: Icon(Icons.remove, size: 20), // Adjust icon size as needed
+                          onPressed: _decrementQuantity,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 8), // Thêm padding ngang cho số lượng
+                          child: Text(
+                            "$quantity",
+                            style: TextStyle(fontSize: 16), // Fixed font size
+                          ),
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.add, size: 20), // Adjust icon size as needed
+                          onPressed: _incrementQuantity,
+                        ),
+                      ],
                     ),
+                  ),
+                ),
                   ],
                 ),
               ),

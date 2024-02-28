@@ -45,6 +45,7 @@ import 'package:flutter_ui/presentation/add_card_screen/add_card_screen.dart';
 import 'package:flutter_ui/presentation/lailyfa_febrina_card_screen/lailyfa_febrina_card_screen.dart';
 import 'package:flutter_ui/presentation/app_navigation_screen/app_navigation_screen.dart';
 import 'package:flutter_ui/presentation/dashboard_page/dashboard_page.dart';
+import 'package:flutter_ui/models/product.dart';
 
 import '../presentation/super_flash_sale_screen/flash_sale_list_page.dart';
 
@@ -180,8 +181,11 @@ class AppRoutes {
     superFlashSaleScreen: (context) => SuperFlashSaleScreen(),
     flashSaleListPage: (context) => FlashSaleListPage(),
     favoriteProductScreen: (context) => FavoriteProductScreen(),
-    productDetailTabContainerScreen: (context) =>
-        ProductDetailTabContainerScreen(),
+    productDetailTabContainerScreen: (context) {
+      final routeArgs = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+      var product = routeArgs['product'];
+      return ProductDetailTabContainerScreen(product: product);
+    },
     reviewProductScreen: (context) => ReviewProductScreen(),
     writeReviewFillScreen: (context) => WriteReviewFillScreen(),
     notificationScreen: (context) => NotificationScreen(),
