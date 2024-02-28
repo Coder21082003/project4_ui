@@ -1,4 +1,4 @@
-import '../product_detail_tab_container_screen/widgets/widget_item_widget.dart';
+import 'package:flutter_ui/presentation/product_detail_tab_container_screen/widgets/widget_item_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/core/app_export.dart';
@@ -9,9 +9,13 @@ import 'package:flutter_ui/widgets/app_bar/appbar_trailing_image.dart';
 import 'package:flutter_ui/widgets/app_bar/custom_app_bar.dart';
 import 'package:flutter_ui/widgets/custom_rating_bar.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:flutter_ui/models/product.dart';
 
 class ProductDetailTabContainerScreen extends StatefulWidget {
-  const ProductDetailTabContainerScreen({Key? key}) : super(key: key);
+  final Product product; // Thêm biến thành viên để giữ sản phẩm được truyền vào
+
+  const ProductDetailTabContainerScreen({Key? key, required this.product})
+      : super(key: key);
 
   @override
   ProductDetailTabContainerScreenState createState() =>
@@ -34,27 +38,38 @@ class ProductDetailTabContainerScreenState
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
         child: Scaffold(
             appBar: _buildAppBar(context),
-            body: SizedBox(
-                width: SizeUtils.width,
-                child: SingleChildScrollView(
-                    padding: EdgeInsets.only(top: 12.v),
-                    child: Column(children: [
-                      _buildProductOverview(context),
-                      SizedBox(height: 22.v),
-                      _buildSelectSize(context),
-                      SizedBox(
-                          height: 1170.v,
-                          child: TabBarView(
-                              controller: tabviewController,
-                              children: [
-                                ProductDetailPage(),
-                                ProductDetailPage(),
-                                ProductDetailPage()
-                              ]))
-                    ])))));
+          body: SizedBox(
+            width: SizeUtils.width,
+            child: SingleChildScrollView(
+              padding: EdgeInsets.only(top: 12.v),
+              child: Column(
+                children: [
+                  _buildProductOverview(context),
+                  SizedBox(height: 22.v),
+                  _buildSelectSize(context),
+                  SizedBox(
+                    height: 1170.v,
+                    child: TabBarView(
+                      controller: tabviewController,
+                      children: [
+                        // Sử dụng widget.product để truyền đối tượng Product vào mỗi tab
+                        ProductDetailPage(product: widget.product),
+                        ProductDetailPage(product: widget.product),
+                        ProductDetailPage(product: widget.product),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+    );
   }
 
   /// Section Widget

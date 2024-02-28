@@ -61,7 +61,7 @@ class CartPage extends StatelessWidget {
             separatorBuilder: (context, index) {
               return SizedBox(height: 16.v);
             },
-            itemCount: 2,
+            itemCount: 1,
             itemBuilder: (context, index) {
               return CartItemWidget();
             }));
@@ -78,18 +78,18 @@ class CartPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _buildShoppingPrice(context,
-                  shipping: "Items (3)", price: "598.86"),
+                  shipping: "Items (1)", price: "1000"),
               SizedBox(height: 16.v),
               _buildShoppingPrice(context,
-                  shipping: "Shipping", price: "40.00"),
+                  shipping: "Shipping", price: "20.00"),
               SizedBox(height: 14.v),
               _buildShoppingPrice(context,
-                  shipping: "Import charges", price: "128.00"),
+                  shipping: "Import charges", price: "30.00"),
               SizedBox(height: 12.v),
               Divider(),
               SizedBox(height: 10.v),
               _buildShoppingPrice(context,
-                  shipping: "Total Price", price: "766.86")
+                  shipping: "Total Price", price: "1050.00")
             ]));
   }
 

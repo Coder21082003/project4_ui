@@ -89,6 +89,34 @@ class DashboardContainerScreen extends StatelessWidget {
         return OfferScreenPage();
       case AppRoutes.accountPage:
         return AccountPage();
+      case AppRoutes.profileScreen:
+        return ProfileScreen();
+      case AppRoutes.addPaymentScreen:
+        return AddPaymentScreen();
+      case AppRoutes.orderDetailsScreen:
+        return OrderDetailsScreen();
+      case AppRoutes.addressScreen:
+        return AddressScreen();
+      case AppRoutes.changePasswordScreen:
+        return ChangePasswordScreen();
+      case AppRoutes.creditCardAndDebitScreen:
+        return CreditCardAndDebitScreen();
+      case AppRoutes.chooseCreditOrDebitCardScreen:
+        return ChooseCreditOrDebitCardScreen();
+      case AppRoutes.notificationScreen:
+        return NotificationScreen();
+      case AppRoutes.notificationActivityScreen:
+        return NotificationActivityScreen();
+      case AppRoutes.notificationFeedScreen:
+        return NotificationFeedScreen();
+      case AppRoutes.notificationOfferScreen:
+        return NotificationOfferScreen();
+      case AppRoutes.addAddressScreen:
+        return AddAddressScreen();
+      case AppRoutes.orderScreen:
+        return OrderScreen();
+      case AppRoutes.orderDetailsScreen:
+        return OrderDetailsScreen();
       case AppRoutes.allCategories:
         return AllCategoriesPage();
       case AppRoutes.kitchen:

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/core/app_export.dart';
 
-// ignore: must_be_immutable
 class WidgetItemWidget extends StatelessWidget {
   const WidgetItemWidget({Key? key})
       : super(
